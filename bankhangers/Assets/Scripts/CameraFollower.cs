@@ -16,7 +16,7 @@ public class CameraFollower : MonoBehaviour
     [SerializeField] private Vector3 followOffset;
     [SerializeField] private Quaternion rotation;
 
-    private void Awake()
+    private void OnValidate()
     {
         if (firstPerson)
         {
@@ -25,6 +25,7 @@ public class CameraFollower : MonoBehaviour
         }
         else
         {
+            transform.parent = null;
             transform.position = player.position + followOffset;
             transform.rotation = rotation;
         }
