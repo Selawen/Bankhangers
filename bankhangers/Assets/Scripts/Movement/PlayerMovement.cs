@@ -7,5 +7,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] protected bool debug;
 
     [SerializeField] protected GameObject player;
+    [SerializeField] protected LayerMask groundMask;
 
 }

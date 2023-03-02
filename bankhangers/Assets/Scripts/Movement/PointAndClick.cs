@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public class PointAndClick : PlayerMovement
 {
-    [SerializeField] private LayerMask groundMask;
-
     private NavMeshAgent agent;
 
     private void Awake()
