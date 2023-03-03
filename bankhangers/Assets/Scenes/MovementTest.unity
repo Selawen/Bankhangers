@@ -817,10 +817,11 @@ MonoBehaviour:
   player: {fileID: 3092251546477617564}
   firstPerson: 0
   isometrisch: 0
-  moveable: 0
+  moveable: 1
   zoom: 1
   minZoom: 3
   maxZoom: 20
+  mouseSensitivity: 0.01
   headOffset: {x: 0, y: 1.5, z: 0}
   followSpeed: 2
   followOffset: {x: 10, y: 15, z: -10}

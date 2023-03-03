@@ -6,9 +6,9 @@ public class CameraFollower : MonoBehaviour
 {
     [SerializeField] private Transform player;
 
-    [SerializeField] private bool firstPerson, isometrisch, zoom;
+    [SerializeField] private bool firstPerson, isometrisch, moveable, zoom;
 
-    [SerializeField] private float minZoom, maxZoom;
+    [SerializeField] private float minZoom, maxZoom, mouseSensitivity;
 
     [Header("First Person")]
     [SerializeField] private Vector3 headOffset;
@@ -43,10 +43,27 @@ public class CameraFollower : MonoBehaviour
         else
             Camera.main.orthographic = false;
 
+
+        if (moveable)
+        {
+            lastMouse = Input.mousePosition;
+        }
     }
 
     private void Update()
     {
+        if (moveable)
+        {
+            Vector3 moveDir = lastMouse - Input.mousePosition;
+
+            lastMouse = Input.mousePosition;
+
+            followOffset += moveDir* mouseSensitivity;
+
+            transform.position = player.position + followOffset;
+            transform.LookAt(player);
+        }
+
         if (zoom)
         {
             currentZoom -= Input.mouseScrollDelta.y;
@@ -63,7 +80,7 @@ public class CameraFollower : MonoBehaviour
             }
         }
 
-        if (!firstPerson && !zoom)
+        if (!firstPerson && !moveable && !zoom)
         {
             Vector3 direction = (player.position + followOffset) - transform.position;
 
