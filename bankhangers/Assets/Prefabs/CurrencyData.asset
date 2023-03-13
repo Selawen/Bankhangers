@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5d01951fd98504d8d44426871be637, type: 3}
   m_Name: CurrencyData
   m_EditorClassIdentifier: 
+  path: 
   currencies:
   - currencyName: Global
     value: 1
