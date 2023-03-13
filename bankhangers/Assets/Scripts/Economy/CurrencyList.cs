@@ -33,4 +33,6 @@ public struct Currency
     public string currencyName;
 
     public float value;
+
+    public Sprite icon;
 }
